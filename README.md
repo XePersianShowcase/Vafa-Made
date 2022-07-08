@@ -7,4 +7,4 @@ This repository tries to accumulate Vafa's nice showcases around bidi/XePersian.
 # Table of Contents
 
 ## `XePersian Zero to Hero`
-    His presentation around XePersian's capabilities at Sharif University of Technology on February 23, 2022.
+* His presentation around XePersian's capabilities at Sharif University of Technology on February 23, 2022.
