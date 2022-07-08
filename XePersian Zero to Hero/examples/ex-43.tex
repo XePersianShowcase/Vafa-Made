@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{xepersian}
+\settextfont{IRXLotus}
+\makeatletter
+\newcommand{\BoxMe}[1]{\fbox{\parbox{2cm}{#1}}}
+\newenvironment{test}{\bidi@collect@body\BoxMe}{}
+\newenvironment{longtest}{\bidi@collect@long@body\BoxMe}{}
+\makeatother
+\begin{document}
+\begin{test}
+وفا ۱ وفا ۲ وفا 
+\end{test}
+
+\bigskip
+\begin{longtest}
+وفا ۱ \par
+وفا ۲ \par
+وفا ۳ \par
+وفا ۴
+\end{longtest}
+\end{document}

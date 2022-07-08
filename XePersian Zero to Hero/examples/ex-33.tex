@@ -1,0 +1,22 @@
+\documentclass{article}
+\usepackage{color}
+\usepackage{lipsum}
+\usepackage{ptext}
+\usepackage{xepersian}
+\settextfont{IRXLotus}
+\makeatletter
+\newcount\WordCount
+\newXeTeXintercharclass\MyComma
+\XeTeXcharclass`\،\MyComma
+\XeTeXcharclass`\,\MyComma
+\XeTeXinterchartoks \z@ 4095 = {\PrintWordCount}
+\XeTeXinterchartoks \z@ \MyComma = {\PrintWordCount}
+\XeTeXinterchartoks \z@ \bidi@sepmark@charclass = {\PrintWordCount}
+\newcommand*{\PrintWordCount}{\raise.8\baselineskip\llap{\tiny\global\advance\WordCount\@ne\textcolor{red}{\the\WordCount}}}
+\makeatother
+\begin{document}
+\ptext
+\begin{latin}
+\lipsum
+\end{latin}
+\end{document}

@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{lipsum}
+\usepackage{ptext}
+\usepackage{xepersian}
+\settextfont{IRXLotus}
+\makeatletter
+\newcount\WordCount
+\newXeTeXintercharclass\MyPunctuations
+\XeTeXcharclass`\{\MyPunctuations
+\XeTeXcharclass`\}\MyPunctuations
+\XeTeXcharclass`\[\MyPunctuations
+\XeTeXcharclass`\]\MyPunctuations
+\XeTeXcharclass`\(\MyPunctuations
+\XeTeXcharclass`\)\MyPunctuations
+\XeTeXcharclass`\`\MyPunctuations
+\XeTeXcharclass`\'\MyPunctuations
+\XeTeXcharclass`\!\MyPunctuations
+\XeTeXcharclass`\:\MyPunctuations
+\XeTeXcharclass`\;\MyPunctuations
+\XeTeXcharclass`\?\MyPunctuations
+\XeTeXcharclass`\؟\MyPunctuations
+\XeTeXcharclass`\«\MyPunctuations
+\XeTeXcharclass`\»\MyPunctuations
+\XeTeXcharclass`\،\MyPunctuations
+\XeTeXcharclass`\,\MyPunctuations
+\XeTeXinterchartoks \z@ 4095 = {\AddTo@WordCount}
+\XeTeXinterchartoks \z@ \MyPunctuations = {\AddTo@WordCount}
+\XeTeXinterchartoks \z@ \bidi@sepmark@charclass = {\AddTo@WordCount}
+\newcommand*{\AddTo@WordCount}{\global\advance\WordCount\@ne}
+\newcommand*{\PrintWordCount}{\textbf{??}}
+\newcommand*{\@PrintWordCount}[1]{\gdef\PrintWordCount{#1}}
+\AtEndDocument{%
+\protected@write\@auxout{}{\string\@PrintWordCount{\the\WordCount}}}
+\makeatother
+\begin{document}
+\fbox{%
+این نوشتار دارای
+\PrintWordCount{}
+واژه
+می‌باشد.%
+}
+
+\ptext
+\begin{latin}
+\lipsum
+\end{latin}
+\end{document}

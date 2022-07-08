@@ -1,0 +1,21 @@
+\documentclass{article}
+\usepackage{ptext}
+\usepackage{xepersian}
+\settextfont{IRXLotus}
+\makeatletter
+\def\ParagraphIndent:#1 {\bidi@switch{\if\bidi@EqualString{#1}}
+    {yes} {\parindent5pc\relax}
+    {no}  {\parindent\z@}
+    {default}{\parindent20pt\relax}
+    \endbidi@switch}
+\makeatother
+\begin{document}
+\ParagraphIndent:yes
+\ptext[1]
+
+\ParagraphIndent:default
+\ptext[2]
+
+\ParagraphIndent:no
+\ptext[3]
+\end{document}

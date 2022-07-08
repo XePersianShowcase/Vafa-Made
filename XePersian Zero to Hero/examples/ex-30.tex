@@ -1,0 +1,16 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage{bidi-atbegshi}
+\usepackage{ptext}
+\usepackage{xepersian}
+\settextfont{IRXLotus}
+\AtBeginShipout{%
+  \AtBeginShipoutLowerLeft{%
+    \put(0,0){%
+      \includegraphics[width=\paperwidth,height=\paperheight]{example-image}%
+    }%
+  }%
+}
+\begin{document}
+\ptext[1-100]
+\end{document}
